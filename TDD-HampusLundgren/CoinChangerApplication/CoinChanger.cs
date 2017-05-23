@@ -17,8 +17,23 @@ namespace CoinChangerApplication
 
         public Dictionary<decimal, int> MakeChange(decimal amount)
         {
-            var change = new Dictionary<decimal, int>()
+            var change = new Dictionary<decimal, int>();      
+            var sortedCoinTypes = coinTypes.OrderByDescending(x => x).ToList();
+          
+            foreach (var cointType in sortedCoinTypes)
+            {
+                change.Add(cointType, 0);
+
+                while(amount >= cointType)
+                {
+                    change[cointType]++;
+                    amount -= cointType;
+                }
+            
+            }
+           
             return change;
+
         }
     }
 }
