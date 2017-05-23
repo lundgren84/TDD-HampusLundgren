@@ -17,7 +17,7 @@ namespace ValidationEngine
             if (string.IsNullOrEmpty(email)){
                 throw new NullOrEmptyExeption();
             }
-            return (Regex.IsMatch(email, emailRegex)? true: throw new NotValidEmailExeption());
+            return (Regex.IsMatch(email, emailRegex)? true: throw new NotValidEmailExeption(""));
         }
 
      

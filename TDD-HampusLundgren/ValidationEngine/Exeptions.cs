@@ -8,17 +8,17 @@ namespace ValidationEngine
 {
     public class NotValidEmailExeption : Exception
     {
-        //public NotValidEmailExeption()
-        //{
+        public NotValidEmailExeption()
+        {
 
-        //}
-        //public NotValidEmailExeption(string message) : base(message)
-        //{
+        }
+        public NotValidEmailExeption(string message) : base(message)
+        {
 
-        //}
+        }
     }
     public class NullOrEmptyExeption : Exception
     {
-
+        
     }
 }
