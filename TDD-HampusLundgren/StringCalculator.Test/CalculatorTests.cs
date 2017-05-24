@@ -70,6 +70,16 @@ namespace StringCalculator.Test
             // Assert
             Assert.AreEqual(21, result);
         }
-   
+        [Test]
+        public void AddCustomDelimiter()
+        {
+            // Arrange
+            // Act
+            var result = sut.Add("//;\n20;78");
+            // Assert
+            Assert.AreEqual(98, result);
+        }
+
+
     }
 }
