@@ -24,7 +24,7 @@ namespace StringCalculator
 
 
             var rowStrings = input.Split(Environment.NewLine.ToCharArray());
-            var delimiterRegex = GenerateDelimiterRegex(rowStrings[0]);
+            var delimiterRegex = GenerateDelimiterRegex();
 
             if (delimiterRegex.IsMatch(rowStrings[0]))
             {
@@ -79,7 +79,7 @@ namespace StringCalculator
             return result;
         }
 
-        private Regex GenerateDelimiterRegex(string input)
+        private Regex GenerateDelimiterRegex()
         {
           
             var result = new Regex(@"^\/{2}.?$");

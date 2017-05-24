@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TravelAgency
 {
-    public class TourSchedule
+    public class TourSchedule : ITourSchedule
     {
         public List<Tour> Tours { get; set; } = new List<Tour>();
         public void CreateTour(string name, DateTime date, int seats)

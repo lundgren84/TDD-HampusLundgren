@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinChangerApplication", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinChangerApplication.Tests", "CoinChangerApplication.Tests\CoinChangerApplication.Tests.csproj", "{6968AB20-CC3C-46C7-AC2A-0A081D71B1A8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercises–2", "Exercises–2", "{068471F2-A889-4DF6-8EEE-A92BBD795A03}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercises–2_4", "Exercises–2_4", "{068471F2-A889-4DF6-8EEE-A92BBD795A03}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAgency", "TravelAgency\TravelAgency.csproj", "{F0404C5E-F97B-4A24-B750-DB268362B238}"
 EndProject

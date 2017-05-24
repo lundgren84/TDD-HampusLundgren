@@ -56,10 +56,11 @@ namespace TravelAgency.Tests
         [Test]
         public void ThrowTourAllocationExceptionIfOverBook()
         {
+            sut.CreateTour("Safari time", new DateTime(2013, 1, 2), 20);
+            sut.CreateTour("Safari time", new DateTime(2013, 1, 2), 20);
+
             Assert.Throws<TourAllocationException>(() =>
-            {
-                sut.CreateTour("Safari time", new DateTime(2013, 1, 2), 20);
-                sut.CreateTour("Safari time", new DateTime(2013, 1, 2), 20);
+            {           
                 sut.CreateTour("Safari time", new DateTime(2013, 1, 2), 20);
             });
         }
