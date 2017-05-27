@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookingSystem.cs" />
     <Compile Include="Exeptions.cs" />
     <Compile Include="ITourSchedule.cs" />
     <Compile Include="Program.cs" />

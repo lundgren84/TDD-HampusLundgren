@@ -10,19 +10,31 @@ namespace TravelAgency.Tests
     [TestFixture]
     public class BookingSystemTests
     {
-        private ITourSchedule sut { get; set; }
+        private TourScheduleStub tourSchedule { get; set; }
+        private BookingSystem sut;
        
         [SetUp]
         public void Setup()
         {
-            sut = new TourScheduleStub();
+            tourSchedule = new TourScheduleStub();
+            sut = new BookingSystem(tourSchedule);
+            
         }
         [Test]
         public void CanCreateBooking()
         {
             // Arrange
+            tourSchedule.Tours.Add(new Tour("In to the roots", new DateTime(2018, 1, 1),20));
+            Passenger passenger = new Passenger()
+            {
+                FirstName = "Olle",
+                LastName = "Svensson",
+            };
+            Booking booking = sut.CreateBooking("In to the roots", new DateTime(2018, 1, 1), 20),passenger);
+            List<Booking> bookings = sut.GetBookingsFor(passenger);
             // Act
             //Assert
+            Assert.AreEqual(1, bookings.Count);
         }
     }
 
