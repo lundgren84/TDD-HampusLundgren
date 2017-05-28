@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravelAgency;
 
 namespace TravelAgency.Tests
 {
@@ -30,16 +31,18 @@ namespace TravelAgency.Tests
                 FirstName = "Olle",
                 LastName = "Svensson",
             };
-            Booking booking = sut.CreateBooking("In to the roots", new DateTime(2018, 1, 1), 20),passenger);
-            List<Booking> bookings = sut.GetBookingsFor(passenger);
             // Act
+            Booking booking = sut.CreateBooking("In to the roots", new DateTime(2018, 1, 1), 20,passenger);
+            List<Booking> bookings = sut.GetBookingsFor(passenger);
+          
             //Assert
             Assert.AreEqual(1, bookings.Count);
         }
     }
 
+  
 
-
+  
 
     public class TourScheduleStub : ITourSchedule
     {

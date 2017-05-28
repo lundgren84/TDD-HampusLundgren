@@ -16,5 +16,20 @@ namespace TravelAgency
             this.tourSchedule = tourSchedule;
          
         }
+
+        public Booking CreateBooking(string v1, DateTime dateTime, int v2)
+        {
+            throw new NotImplementedException();
+        }    
+
+        public Booking CreateBooking(string v1, DateTime date, int seats, Passenger passenger)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Booking> GetBookingsFor(Passenger passenger)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
