@@ -9,27 +9,28 @@ namespace TravelAgency
     public class BookingSystem
     {
         private ITourSchedule tourSchedule;
-      
+        private List<Booking> Bookings;
 
         public BookingSystem(ITourSchedule tourSchedule)
         {
             this.tourSchedule = tourSchedule;
-         
+            this.Bookings = new List<Booking>();
         }
+       
 
-        public Booking CreateBooking(string v1, DateTime dateTime, int v2)
+        public void CreateBooking(string tourName, DateTime date, int seats, Passenger passenger)
         {
-            throw new NotImplementedException();
-        }    
-
-        public Booking CreateBooking(string v1, DateTime date, int seats, Passenger passenger)
-        {
-            throw new NotImplementedException();
+            Bookings.Add(new Booking() {
+                passenger = passenger,
+                seats = seats,
+                date = date,
+                tourName = tourName,
+            });
         }
 
         public List<Booking> GetBookingsFor(Passenger passenger)
         {
-            throw new NotImplementedException();
+            return Bookings.Where(x=>x.passenger == passenger).ToList();
         }
     }
 }
