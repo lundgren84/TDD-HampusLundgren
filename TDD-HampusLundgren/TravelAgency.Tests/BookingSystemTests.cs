@@ -58,10 +58,13 @@ namespace TravelAgency.Tests
         [Test]
         public void CanCancelBooking()
         {
-           // tourSchedule.Tours.Add(new Tour("In to the roots", new DateTime(2018, 1, 1), 20));
+            //Arrange
+            tourSchedule.Tours.Add(new Tour("In to the roots", new DateTime(2018, 1, 1), 20));
             sut.CreateBooking("In to the roots", new DateTime(2018, 1, 1), 1, TestPassenger);
+            //Act
             sut.CancelBooking("In to the roots", new DateTime(2018, 1, 1), 1, TestPassenger);
             List<Booking> bookings = sut.GetBookingsFor(TestPassenger);
+            //Assert
             Assert.AreEqual(0, bookings.Count);
         }
     }
@@ -73,8 +76,6 @@ namespace TravelAgency.Tests
    
    Add assertions to the end of the tests where you expect GetToursFor to be called.
    Assert that it was called the expected number of times, and with the expected argument.
-   
-   Finally, add a test that lets a passenger cancel their spot on a tour.
  */
 
     public class TourScheduleStub : ITourSchedule

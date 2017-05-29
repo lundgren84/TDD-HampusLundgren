@@ -54,7 +54,7 @@ namespace TravelAgency
             x.seats == seats && x.passenger == passenger);
             if(booking != null)
             {
-
+                Bookings.Remove(booking);
             }
         }
     }
