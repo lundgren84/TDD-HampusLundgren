@@ -23,15 +23,39 @@ namespace TravelAgency
                                        x.passenger.LastName == passenger.LastName).ToList();
         }
 
-        public void CreateBooking(string v1, DateTime dateTime, int v2, Passenger passenger)
+        public void CreateBooking(string tourName, DateTime dateTime, int seats, Passenger passenger)
         {
+            var tour = tourSchedule.Tours.FirstOrDefault(x => x.Name == tourName);
+            if (tour == null)
+            {
+                throw new TourDontExistsExeption("This tour dont exists.");
+            }
+            if (tour.Seats< seats)
+            {
+                throw new OverBookedExeption("The number of seats asked is not avalible. Seats avalible: "+tour.Seats+". Seats askef for: "+seats+".");
+            }
+            
+
+           
+             
+
             Bookings.Add(new Booking()
             {
-                tourName = v1,
+                tourName = tourName,
                 passenger = passenger,
-                seats = v2,
+                seats = seats,
                 date = dateTime,
             });
+        }
+
+        public void CancelBooking(string name, DateTime date, int seats, Passenger passenger)
+        {
+            var booking = Bookings.FirstOrDefault(x => x.date == date && x.tourName == name &&
+            x.seats == seats && x.passenger == passenger);
+            if(booking != null)
+            {
+
+            }
         }
     }
 
