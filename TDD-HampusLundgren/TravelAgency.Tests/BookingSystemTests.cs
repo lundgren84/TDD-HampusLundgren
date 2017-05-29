@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using TravelAgency;
 
 namespace TravelAgency.Tests
 {
@@ -21,28 +22,33 @@ namespace TravelAgency.Tests
         public void CanCreateBooking()
         {
             // Arrange
-            tourSchedule.Tours.Add(new Tour("In to the roots", new DateTime(2018, 1, 1),20));
+            tourSchedule.Tours.Add(new Tour("In to the roots", new DateTime(2018, 1, 1), 20));
             Passenger passenger = new Passenger()
             {
                 FirstName = "Olle",
                 LastName = "Svensson",
             };
             // Act
-            sut.CreateBooking("In to the roots", new DateTime(2018, 1, 1), 20,passenger);
+            sut.CreateBooking("In to the roots", new DateTime(2018, 1, 1), 20, passenger);
             List<Booking> bookings = sut.GetBookingsFor(passenger);
-          
+
             //Assert
             Assert.AreEqual(1, bookings.Count);
         }
     }
 
-  
+ 
 
   
+    
 
     public class TourScheduleStub : ITourSchedule
     {
-        public List<Tour> Tours { get; set; } = new List<Tour>();
+        public List<Tour> Tours { get;  set; }
+        public TourScheduleStub()
+        {
+            Tours = new List<Tour>();
+        }
 
         public void CreateTour(string name, DateTime date, int seats)
         {

@@ -8,9 +8,9 @@ namespace TravelAgency
 {
     public class Booking
     {
-        internal Passenger passenger;
-        internal int seats;
-        internal DateTime date;
-        internal string tourName;
+        public Passenger passenger;
+        public string tourName;
+        public int seats;
+        public DateTime date;
     }
 }
