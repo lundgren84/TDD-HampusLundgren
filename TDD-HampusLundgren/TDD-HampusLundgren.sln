@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinChangerApplication", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinChangerApplication.Tests", "CoinChangerApplication.Tests\CoinChangerApplication.Tests.csproj", "{6968AB20-CC3C-46C7-AC2A-0A081D71B1A8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercises–2_4", "Exercises–2_4", "{068471F2-A889-4DF6-8EEE-A92BBD795A03}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercises–2,4,5", "Exercises–2,4,5", "{068471F2-A889-4DF6-8EEE-A92BBD795A03}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAgency", "TravelAgency\TravelAgency.csproj", "{F0404C5E-F97B-4A24-B750-DB268362B238}"
 EndProject
@@ -32,6 +32,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringCalculator", "StringCalculator\StringCalculator.csproj", "{7D817C80-E5BE-490A-BC20-D02AFFAE8157}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringCalculator.Test", "StringCalculator.Test\StringCalculator.Test.csproj", "{8BB055E7-287B-47D5-9856-E3427B537DFC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{04454FA7-F32C-45B6-B94D-F76F17D936C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

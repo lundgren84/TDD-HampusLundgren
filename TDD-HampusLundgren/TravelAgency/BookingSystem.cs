@@ -9,12 +9,20 @@ namespace TravelAgency
     public class BookingSystem
     {
         private ITourSchedule tourSchedule;
+        public IMailSender mailSender;
+
         private List<Booking> Bookings { get; set; } = new List<Booking>();
 
         public BookingSystem(ITourSchedule tourSchedule)
         {
             this.tourSchedule = tourSchedule;
 
+        }
+
+        public BookingSystem(ITourSchedule tourSchedule, IMailSender mailSender) 
+        {
+            this.tourSchedule = tourSchedule;
+            this.mailSender = mailSender;
         }
 
         public List<Booking> GetBookingsFor(Passenger passenger)
@@ -33,12 +41,8 @@ namespace TravelAgency
             if (tour.Seats< seats)
             {
                 throw new OverBookedExeption("The number of seats asked is not avalible. Seats avalible: "+tour.Seats+". Seats askef for: "+seats+".");
-            }
+            }    
             
-
-           
-             
-
             Bookings.Add(new Booking()
             {
                 tourName = tourName,
@@ -46,6 +50,7 @@ namespace TravelAgency
                 seats = seats,
                 date = dateTime,
             });
+            mailSender.Send(passenger.Email, "Thank you for book this crap.");
         }
 
         public void CancelBooking(string name, DateTime date, int seats, Passenger passenger)

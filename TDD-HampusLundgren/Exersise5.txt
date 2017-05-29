@@ -1,0 +1,25 @@
+Exercises – #5 - Stubbing with NSubstitute
+
+Kenya Believe It! is growing and wants to be able to send out email confirmation messages whenever someone gets booked at a tour.
+
+In order to unit test this behavior, we will need to create yet another stub object to avoid actually sending mails every time we run our tests. In this case, we won't write the stub by hand, but use the NSubstitute framework.
+
+Main task
+
+1.	As before, either continue working on your solution from the previous exercise, or grab the solution to Exercise4.
+ 
+2.	Right click your Test project and select Manage NuGet Packages. Search for the NSubstitute package and install it.
+
+3.	Create an interface called IMailSender with a Send method with parameters for the email recipient and a message to send.
+
+4.	In the BookingSystemTests test suite, add a private IMailSender field.
+
+5.	Create an IMailSender stub and store in the field you created by using the Substitute.For in NSubstitute.
+
+6.	Change the instantiation of the SUT in the SetUp method and pass along this interface as a second argument to the constructor (together with the TourScheduleStub from the previous exercise).
+
+7.	In order to make your code compile, refactor the BookingSystem constructor and store the value from the IMailSender parameter in a field.
+
+8.	Add a test which will check that a confirmation email is actually sent. You can modify the existing Passenger class to include an email as well. Assert that the method was called with the correct email. Make sure that this method is only called once per booking. Make the test pass.
+
+9.	Add another test to make sure that the email message contains both the date and the name of the booked tour. Make the test pass.

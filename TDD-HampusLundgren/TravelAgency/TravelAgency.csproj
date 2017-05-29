@@ -45,6 +45,7 @@
     <Compile Include="Booking.cs" />
     <Compile Include="BookingSystem.cs" />
     <Compile Include="Exeptions.cs" />
+    <Compile Include="IMailSender.cs" />
     <Compile Include="ITourSchedule.cs" />
     <Compile Include="Passenger.cs" />
     <Compile Include="Program.cs" />
