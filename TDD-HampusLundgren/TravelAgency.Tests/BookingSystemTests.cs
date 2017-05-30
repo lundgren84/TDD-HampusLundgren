@@ -11,7 +11,7 @@ namespace TravelAgency.Tests
         private BookingSystem sut;
         private TourScheduleStub tourSchedule { get; set; }
 
-       
+
         private IMailSender mailSender { get; set; }
         //Test props
         private Passenger TestPassenger;
@@ -21,9 +21,9 @@ namespace TravelAgency.Tests
         public void Setup()
         {
             mailSender = Substitute.For<IMailSender>();
-      
             tourSchedule = new TourScheduleStub();
-            sut = new BookingSystem(tourSchedule,mailSender);
+            sut = new BookingSystem(tourSchedule, mailSender);
+
             TestDate = new DateTime(2018, 1, 1);
             TestPassenger = new Passenger()
             {
@@ -37,7 +37,7 @@ namespace TravelAgency.Tests
         public void CanCreateBooking()
         {
             // Arrange
-            tourSchedule.Tours.Add(new Tour("In to the roots", TestDate,20));
+            tourSchedule.Tours.Add(new Tour("In to the roots", TestDate, 20));
 
             // Act
             sut.CreateBooking("In to the roots", TestDate, 20, TestPassenger);
@@ -83,42 +83,32 @@ namespace TravelAgency.Tests
             //Act
             sut.CreateBooking("In to the roots", TestDate, 1, TestPassenger);
             //Assert
-            sut.mailSender.Received().Send(TestPassenger.Email, "Thank you for book this crap.");
+            sut.mailSender.Received().Send(Arg.Any<string>(), Arg.Any<string>());
+
         }
         [Test]
         public void ConfirmationMailContainsAllBookingInformation()
         {
-            /*
-             Exercise 5
-             9.	Add another test to make sure that the email message contains both the date and the name of the booked tour. Make the test pass.
-             */
+            /* Exercise 5
+             9.	Add another test to make sure that the email message contains both the date and the name of the booked tour. Make the test pass.  */
 
             //Arrange
-
+            tourSchedule.Tours.Add(new Tour("In to the roots", TestDate, 20));
             //Act
-
+            sut.CreateBooking("In to the roots", TestDate, 1, TestPassenger);
             //Assert
+            sut.mailSender.Received().Send(TestPassenger.Email,
+                Arg.Is<string>(x => x.Contains(TestDate.ToString()) && x.Contains("In to the roots")));
 
         }
     }
 
-    /*   
-     *   Exercise 4 Stretch
-   In tests such as CanCreateBooking, we also expect the GetToursFor to be called with thecorrect
-   DateTime . In your stub, add another list that records the DateTime argument passed
-   to GetToursFor every time it's called.
-   
-   Add assertions to the end of the tests where you expect GetToursFor to be called.
-   Assert that it was called the expected number of times, and with the expected argument.
 
-     *   Exercise 5
-
-
- */
 
     public class TourScheduleStub : ITourSchedule
     {
         public List<Tour> Tours { get; set; }
+        public List<DateTime> Dates { get; set; }
         public TourScheduleStub()
         {
             Tours = new List<Tour>();
@@ -131,6 +121,7 @@ namespace TravelAgency.Tests
 
         public List<Tour> GetToursFor(DateTime dateTime)
         {
+            Dates.Add(dateTime);
             return Tours;
         }
     }

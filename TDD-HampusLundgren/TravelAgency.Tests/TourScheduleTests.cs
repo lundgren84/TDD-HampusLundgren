@@ -64,5 +64,6 @@ namespace TravelAgency.Tests
                 sut.CreateTour("Safari time", new DateTime(2013, 1, 2), 20);
             });
         }
+      
     }
 }

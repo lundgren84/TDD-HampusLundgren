@@ -50,7 +50,7 @@ namespace TravelAgency
                 seats = seats,
                 date = dateTime,
             });
-            mailSender.Send(passenger.Email, "Thank you for book this crap.");
+            mailSender.Send(passenger.Email, "Thank you for book this crap. date: "+dateTime.ToString()+" TourName: "+tourName);
         }
 
         public void CancelBooking(string name, DateTime date, int seats, Passenger passenger)
